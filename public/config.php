@@ -1,5 +1,6 @@
 <?php
 require '../vendor/autoload.php';
+
 $app = new \Slim\App([
     'settings' => [
         // Slim Settings
@@ -8,9 +9,9 @@ $app = new \Slim\App([
         'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'database',
-            'username' => 'name',
-            'password' => 'password',
+            'database' => 'economie',
+            'username' => 'root',
+            'password' => 'aziz',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -20,11 +21,12 @@ $app = new \Slim\App([
 $container = $app->getContainer();
 
 //elquent config
+$capsule = new \Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container['settings']['db']);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
 $container['db'] = function ($container) {
-    $capsule = new \Illuminate\Database\Capsule\Manager;
-    $capsule->addConnection($container['settings']['db']);
-    $capsule->setAsGlobal();
-    $capsule->bootEloquent();
     return $capsule;
 };
 

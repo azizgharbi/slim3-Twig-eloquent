@@ -1,6 +1,7 @@
 <?php
 
 require 'config.php';
+Use App\Models\User;
 
 $app->get('/', function ($request, $response) {
   $user=$this->db->table('users')->find(1);
@@ -10,4 +11,10 @@ $app->get('/', function ($request, $response) {
 
         });
 
-$app->run(); 
+$app->get('/test', function ($request, $response) {
+$user = User::find(1);
+var_dump($user);
+});
+
+$app->run();
+//https://akrabat.com/using-testing-eloquent-in-slim-framework/

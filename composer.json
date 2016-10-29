@@ -1,0 +1,14 @@
+{
+    "name": "economie/app",
+    "authors": [
+        {
+            "name": "Aziz Gharbi",
+            "email": "aziz.gr@live.fr"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.5",
+        "slim/twig-view": "^2.1",
+        "illuminate/database": "^5.3"
+    }
+}

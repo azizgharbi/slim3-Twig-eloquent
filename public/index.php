@@ -2,16 +2,10 @@
 
 require 'config.php';
 
-Use App\Models\User;
+// routes
 
-$app->get('/', function ($request, $response) {
-  $user= User::find(1);
-  $this->view->render($response, 'home.twig', [
-              'user' => $user
-          ]);
-
-        });
+$app->get('/','HomeController:index');
 
 
+// run the application
 $app->run();
-//https://akrabat.com/using-testing-eloquent-in-slim-framework/

@@ -9,9 +9,9 @@ $app = new \Slim\App([
         'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'economie',
-            'username' => 'root',
-            'password' => 'aziz',
+            'database' => 'database',
+            'username' => 'username',
+            'password' => 'password',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -39,4 +39,9 @@ $container['view'] = function ($c) {
     $view->addExtension(new Slim\Views\TwigExtension($c['router'], $basePath));
 
     return $view;
+};
+
+// controllers
+$container['HomeController']= function($container){
+  return new \App\controllers\HomeController($container);
 };

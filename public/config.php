@@ -9,9 +9,9 @@ $app = new \Slim\App([
         'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'database',
-            'username' => 'username',
-            'password' => 'password',
+            'database' => 'economie',
+            'username' => 'root',
+            'password' => 'aziz',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -44,4 +44,8 @@ $container['view'] = function ($c) {
 // controllers
 $container['HomeController']= function($container){
   return new \App\controllers\HomeController($container);
+};
+
+$container['AuthController']= function($container){
+  return new \App\controllers\Auth\AuthController($container);
 };

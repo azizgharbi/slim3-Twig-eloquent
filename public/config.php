@@ -1,6 +1,8 @@
 <?php
-require '../vendor/autoload.php';
 
+session_start();
+
+require '../vendor/autoload.php';
 $app = new \Slim\App([
     'settings' => [
         // Slim Settings
@@ -18,6 +20,7 @@ $app = new \Slim\App([
         ]
     ],
 ]);
+
 $container = $app->getContainer();
 
 //elquent config
@@ -41,11 +44,15 @@ $container['view'] = function ($c) {
     return $view;
 };
 
+// Middleware
+$app->add(new \App\Middleware\ValidationMiddleware($container));
 // controllers
+$container['Validator']= function($container){
+  return new \App\Validation\Validator($container);
+};
 $container['HomeController']= function($container){
   return new \App\controllers\HomeController($container);
 };
-
 $container['AuthController']= function($container){
   return new \App\controllers\Auth\AuthController($container);
 };

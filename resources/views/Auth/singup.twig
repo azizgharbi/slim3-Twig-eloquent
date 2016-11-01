@@ -3,23 +3,30 @@
 <div class="row">
 <div class="col-xs-6 col-xs-offset-3">
   <form action="{{path_for('register')}}" method="post" autocomplete="off">
-    <div class="form-group">
+    <div class="form-group {{ errors.email ? 'has-error' : ''}}">
       <label for="email">Email address:</label>
       <input type="text" class="form-control" name="email" id="email" placeholder="exemple@domain.com">
+      {% if errors.email %}
+      <span class="help-block">{{ errors.email }}</span>
+      {% endif %}
     </div>
-    <div class="form-group">
-      <label for="email">Username:</label>
-      <input type="text" class="form-control" name="name" id="email">
+    <div class="form-group {{ errors.name ? 'has-error' : ''}}">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" name="name" id="username">
+      {% if errors.name %}
+      <span class="help-block">{{ errors.name }}</span>
+      {% endif %}
     </div>
-    <div class="form-group">
+    <div class="form-group {{ errors.password ? 'has-error' : ''}}">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" name="password" id="pwd">
+      {% if errors.name %}
+      <span class="help-block">{{ errors.password }}</span>
+      {% endif %}
     </div>
 
     <button type="submit" class="btn btn-default pull-right">Register</button>
   </form>
 </div>
-{{ errors | json_encode }}
-
 </div>
 {% endblock %}

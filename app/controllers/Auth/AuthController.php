@@ -22,7 +22,7 @@ class AuthController extends Controller
     {
 
       $validation=$this->Validator->validate($request,[
-         'email'=>validate::noWhitespace()->NotEmpty(),
+         'email'=>validate::noWhitespace()->NotEmpty()->Email(),
          'name'=>validate::noWhitespace()->NotEmpty()->Alpha(),
          'password'=>validate::noWhitespace()->NotEmpty(),
       ]);

@@ -43,6 +43,10 @@ $container['view'] = function ($c) {
 
     return $view;
 };
+// Authentification
+$container['Auth'] = function ($container) {
+    return new \App\Auth\Auth;
+};
 //csrf
 $container['csrf'] = function ($container) {
     return new \Slim\Csrf\Guard;

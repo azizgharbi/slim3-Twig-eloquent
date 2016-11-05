@@ -10,6 +10,27 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+/*
+* singin
+*
+*/
+
+     // get
+     public function getSingin($request,$response)
+     {
+       return $this->view->render($response, 'Auth/singin.twig');
+     }
+     // Post
+        public function postSingin($request,$response)
+        {
+         $auth=$this->Auth->userExiste($request->getParam('email'),$request->getParam('password'));
+          var_dump($auth);
+
+        }
+/*
+* Register
+*
+*/
 
  // get
     public function getRegister($request,$response)

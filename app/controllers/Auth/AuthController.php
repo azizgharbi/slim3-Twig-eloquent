@@ -24,8 +24,9 @@ class AuthController extends Controller
         public function postSingin($request,$response)
         {
          $auth=$this->Auth->userExiste($request->getParam('email'),$request->getParam('password'));
-          var_dump($auth);
-
+         if(!$auth){
+          return $response->withRedirect($this->router->pathFor('login'));
+         }
         }
 /*
 * Register

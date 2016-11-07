@@ -21,13 +21,17 @@ class AuthController extends Controller
        return $this->view->render($response, 'Auth/singin.twig');
      }
      // Post
-        public function postSingin($request,$response)
-        {
+     public function postSingin($request,$response)
+      {
          $auth=$this->Auth->userExiste($request->getParam('email'),$request->getParam('password'));
-         if(!$auth){
+          if(!$auth){
           return $response->withRedirect($this->router->pathFor('login'));
-         }
-        }
+          }
+          else{
+            return $response->withRedirect($this->router->pathFor('home'));
+
+          }
+      }
 /*
 * Register
 *
@@ -60,5 +64,12 @@ class AuthController extends Controller
      ]);
      return $response->withRedirect($this->router->pathFor('home'));
     }
+
+    // logout
+    public function logout($request,$response)
+     {
+        $auth=$this->Auth->logout();
+        return $response->withRedirect($this->router->pathFor('login'));
+     }
 
 }

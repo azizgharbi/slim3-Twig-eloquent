@@ -1,0 +1,29 @@
+{
+  "name": "slim-starter",
+  "version": "1.0.0",
+  "description": "just testing",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-tinifier": "^1.0.2",
+    "gulp-uglifycss": "^1.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azizgharbi/slim3-Twig-eloquent.git"
+  },
+  "keywords": [
+    "slim",
+    "3"
+  ],
+  "author": "aziz gharbi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azizgharbi/slim3-Twig-eloquent/issues"
+  },
+  "homepage": "https://github.com/azizgharbi/slim3-Twig-eloquent#readme"
+}

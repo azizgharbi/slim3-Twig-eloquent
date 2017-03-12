@@ -11,7 +11,7 @@ class HomeController extends Controller
 
     public function index ($request,$response)
     {
-      $user= User::find(1);
+      $user= User::find(15);
       $x=$_SESSION['Auth'];
       return $this->view->render($response, 'home.twig', [
         'user' => $user,
